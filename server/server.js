@@ -1,9 +1,10 @@
 import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
 const app = express();
-//import ip from "ip";
-//const serverIp = ip.address();
+
 const PORT = 5000;
 app.use(cors());
 
