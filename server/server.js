@@ -11,7 +11,8 @@ app.use(cors());
 // Handle requests for news data
 app.get("/", async (req, res) => {
   const apiKey = process.env.REACT_APP_API_KEY;
-  const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&category=${req.body.category}&apiKey=${apiKey}`;
+  const category = req.query.category;
+  const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`;
   const response = await fetch(apiUrl);
   if (!response.ok) {
     console.log(`Failed to fetch data: ${response.statusText}`);
